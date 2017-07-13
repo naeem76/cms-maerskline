@@ -1,0 +1,29 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <text>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @{string fullname = "";}
+                @if (MaerskLineCMS.Models.GlobalVariables.fullname != "")
+                {
+                    fullname = MaerskLineCMS.Models.GlobalVariables.fullname;
+                }
+                else {
+                    fullname = User.Identity.Name;
+                }
+                @Html.ActionLink("Welcome back, " + fullname + "!", "Index", "UserProfile", routeValues: null, htmlAttributes: null)
+
+
+                </li>
+            <li>
+                @Html.ActionLink("Sign out", "SignOut", "Account")
+            </li>
+        </ul>
+    </text>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Sign in", "SignIn", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

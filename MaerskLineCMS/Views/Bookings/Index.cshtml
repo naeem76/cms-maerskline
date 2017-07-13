@@ -1,0 +1,60 @@
+﻿@model IEnumerable<MaerskLineCMS.Models.Booking>
+
+@{
+    ViewBag.Title = "Booking";
+}
+
+<h2>Shipment Booking</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BookingID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookingDate)
+        </th>
+        <th>
+            Cargo
+            @*Html.DisplayNameFor(model => model.Cargo.Name)*@
+        </th>
+        <th>
+            Shipping
+            @*Html.DisplayNameFor(model => model.Shipping.ShippingSource)*@
+        </th>
+        <th>
+            Warehouse
+            @*Html.DisplayNameFor(model => model.Warehouse.Zone)*@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookingID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookingDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cargo.Text)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shipping.Text)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Warehouse.Text)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BookingID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BookingID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BookingID })
+        </td>
+    </tr>
+}
+
+</table>

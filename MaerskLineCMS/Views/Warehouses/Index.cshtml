@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MaerskLineCMS.Models.Warehouse>
+
+@{
+    ViewBag.Title = "Warehouse Logistics";
+}
+
+<h2>Warehouse Logistics</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.WarehouseID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LotNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContainerNo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.WarehouseID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LotNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContainerNo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.WarehouseID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.WarehouseID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.WarehouseID })
+        </td>
+    </tr>
+}
+
+</table>

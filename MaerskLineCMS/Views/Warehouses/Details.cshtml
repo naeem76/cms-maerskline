@@ -1,0 +1,42 @@
+﻿@model MaerskLineCMS.Models.Warehouse
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Warehouse</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Zone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LotNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LotNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContainerNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContainerNo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.WarehouseID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

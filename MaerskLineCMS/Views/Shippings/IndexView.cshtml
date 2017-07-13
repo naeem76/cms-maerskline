@@ -1,0 +1,46 @@
+﻿@model IEnumerable<MaerskLineCMS.Models.Shipping>
+
+@{
+    ViewBag.Title = "Shipping Schedule";
+}
+
+<h2>Shipping Schedule</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ShippingID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShippingDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShippingSource)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShippingDestination)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShippingID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShippingDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShippingSource)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShippingDestination)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.ShippingID })
+        </td>
+    </tr>
+}
+
+</table>
